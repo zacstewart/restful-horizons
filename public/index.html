@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>JPL HORIZONS REST API</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css" media="screen">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script>
+      $(function () {
+        $('#output').html('Waiting for query…')
+        $('form').on('submit', function (e) {
+          e.preventDefault();
+          $('#output').html('Loading…')
+          $.ajax({
+            url: '/bodies/' + $('input[name=body]').val(),
+            success: function (data) {
+              $('#output').html(data);
+            }
+          });
+        });
+      });
+    </script>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="page-header">
+        <h1>JPL HORIZONS</h1>
+      </div>
+      <form id="bodies" action="#">
+        <div class="input">
+          <label for="body">Body name</label>
+          <input name="body" type="text">
+        </div>
+        <div class="input">
+          <input type="submit" class="btn btn-primary">
+        </div>
+      </form>
+      <pre id="output"></pre>
+    </div>
+  </body>
+</html>
