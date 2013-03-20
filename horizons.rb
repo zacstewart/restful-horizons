@@ -36,6 +36,7 @@ class Horizons < Sinatra::Base
 
   get '/bodies/:body' do
     body = Tengai::Body.find(client, params['body'])
+    content_type :text
     body.data
   end
 
