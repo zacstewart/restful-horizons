@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/zacstewart/tengai.git
-  revision: a56caa15477016fb936be64944d709101af9b495
+  revision: 6beb9b002073456d2b919cf1d37802d7c5225feb
   specs:
     tengai (0.0.1)
       virtus
